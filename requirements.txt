@@ -1,4 +1,4 @@
-kaggle==1.5.16
+kaggle
 numpy==1.23.5
 Pillow==9.5.0
 matplotlib==3.7.2
