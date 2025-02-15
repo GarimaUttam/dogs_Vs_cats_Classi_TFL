@@ -12,10 +12,10 @@ uploaded_imgFile = st.file_uploader("Choose an image of cat or dog", type = ["jp
 
 if uploaded_imgFile is not None:
     # image = Image.open(uploaded_imgFile).convert("L")
-    image = Image.open(uploaded_imgFile)
+    image = Image.open(uploaded_imgFile).convert("RGB")
     image = image.resize((224, 224))
     image_arr = np.array(image)/225.0
-    image_arr = image_arr.reshape(1, 224, 224, 1)
+    image_arr = image_arr.reshape(1, 224, 224, 3)
 
     st.image(image, caption = "Uploaded image", use_container_width=True)
 
@@ -23,6 +23,6 @@ if uploaded_imgFile is not None:
     predicted_image = np.argmax(prediction)
 
     if predicted_image == 0:
-        st.write("predicted image is CAT")
+        st.write("Predicted image is CAT")
     else:
-        st.write(f"Predicted image is DOG")
+        st.write("Predicted image is DOG")
